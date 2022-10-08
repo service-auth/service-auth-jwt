@@ -11,6 +11,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import lombok.RequiredArgsConstructor;
 
+
+
 @Service
 @Transactional
 @RequiredArgsConstructor
@@ -19,19 +21,20 @@ public class UserServiceDefault implements UserService {
 	private RoleRepository roleRepository;
 
 	public User saveUser(User user) {
-		return null;
+		return userRepository.save(user);
 	}
 
 	public Role saveRole(Role role) {
-		return null;
+		return roleRepository.save(role);
 	}
 
 	public void addRoleToUser(String username, String rolename) {
-
+       User user  = userRepository.findByUsername(username);
+       Role role = roleRepository.findByName(rolename);
 	}
 
 	public User getUser(String username) {
-		return null;
+		return userRepository.findByUsername(username);
 	}
 
 	public List<User> getUsers() {
