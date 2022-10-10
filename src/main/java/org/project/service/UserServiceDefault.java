@@ -31,6 +31,7 @@ public class UserServiceDefault implements UserService {
 	public void addRoleToUser(String username, String rolename) {
        User user  = userRepository.findByUsername(username);
        Role role = roleRepository.findByName(rolename);
+       user.getRoles().add(role);
 	}
 
 	public User getUser(String username) {
@@ -38,7 +39,7 @@ public class UserServiceDefault implements UserService {
 	}
 
 	public List<User> getUsers() {
-		return null;
+		return userRepository.findAll();
 	}
 
 }

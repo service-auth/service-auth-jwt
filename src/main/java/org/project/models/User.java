@@ -12,11 +12,10 @@ import javax.persistence.ManyToMany;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 
-@Entity @Data @Getter @NoArgsConstructor @AllArgsConstructor
+@Entity @Data  @NoArgsConstructor @AllArgsConstructor
 public class User {
   @Id @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
