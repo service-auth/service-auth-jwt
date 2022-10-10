@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class AuthentificationController {
 	@RequestMapping({ "/hello" })
 	public String firstPage() {
-		return "Hello World";
+		return "Hello Wolrld";
 	}
 
 }
