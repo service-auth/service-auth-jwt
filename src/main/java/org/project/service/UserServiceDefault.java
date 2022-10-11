@@ -6,6 +6,7 @@ import org.project.dao.RoleRepository;
 import org.project.dao.UserRepository;
 import org.project.models.Role;
 import org.project.models.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,7 +18,9 @@ import lombok.RequiredArgsConstructor;
 @Transactional
 @RequiredArgsConstructor
 public class UserServiceDefault implements UserService {
+	@Autowired
 	private UserRepository userRepository;
+	@Autowired
 	private RoleRepository roleRepository;
 
 	public User saveUser(User user) {
