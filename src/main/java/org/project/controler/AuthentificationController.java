@@ -2,11 +2,14 @@ package org.project.controler;
 
 import java.util.List;
 
+import org.project.models.Role;
 import org.project.models.User;
 import org.project.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,8 +26,16 @@ public class AuthentificationController {
 		return "Hello World";
 	}
 	@GetMapping("/user")
-	public ResponseEntity<List<User>> getUser(){
-		return ResponseEntity.ok().body(service.getUsers());
+	public List<User> getUser(){
+		return service.getUsers();
+	}
+	@PostMapping(path="/user")
+	public User saveUser(@RequestBody User user) {
+		return service.saveUser(user);
+	}
+	@PostMapping(path="/role")
+	public User saveRole(@RequestBody Role role) {
+		return service.saveRole(role);
 	}
 
 }

@@ -7,6 +7,7 @@ import org.project.dao.UserRepository;
 import org.project.models.Role;
 import org.project.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,8 +23,13 @@ public class UserServiceDefault implements UserService {
 	private UserRepository userRepository;
 	@Autowired
 	private RoleRepository roleRepository;
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 
 	public User saveUser(User user) {
+		String pwd = user.getPassword();
+		user.setPassword(passwordEncoder.encode(pwd));
+		
 		return userRepository.save(user);
 	}
 
