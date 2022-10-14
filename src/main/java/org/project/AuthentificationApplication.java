@@ -17,7 +17,6 @@ public class AuthentificationApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(AuthentificationApplication.class, args);
-		System.out.println("ss");
 	}
 	
 	@Bean
