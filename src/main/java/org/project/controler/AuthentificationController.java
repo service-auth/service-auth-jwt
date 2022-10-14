@@ -34,7 +34,7 @@ public class AuthentificationController {
 		return service.saveUser(user);
 	}
 	@PostMapping(path="/role")
-	public User saveRole(@RequestBody Role role) {
+	public Role saveRole(@RequestBody Role role) {
 		return service.saveRole(role);
 	}
 
