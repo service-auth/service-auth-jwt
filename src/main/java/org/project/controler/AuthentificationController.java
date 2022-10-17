@@ -3,10 +3,10 @@ package org.project.controler;
 import java.util.List;
 
 import org.project.models.Role;
+import org.project.models.RoleUser;
 import org.project.models.User;
 import org.project.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -36,6 +36,10 @@ public class AuthentificationController {
 	@PostMapping(path="/role")
 	public Role saveRole(@RequestBody Role role) {
 		return service.saveRole(role);
+	}
+	@PostMapping(path="/addRoleToUser")
+	public void addRoleToUser(@RequestBody RoleUser roleUser) {
+		service.addRoleToUser(roleUser.getUsername(), roleUser.getUsername());
 	}
 
 }
